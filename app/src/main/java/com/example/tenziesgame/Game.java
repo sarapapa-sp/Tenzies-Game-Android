@@ -2,6 +2,7 @@ package com.example.tenziesgame;
 
 import static com.example.tenziesgame.R.id.img3;
 import static com.example.tenziesgame.R.id.start;
+import static com.example.tenziesgame.R.id.submit;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +10,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +25,8 @@ public class Game extends AppCompatActivity {
     ImageView img7;
     ImageView img8;
     ImageView img9;
+    Button submitButton;
+
 
     TextView rule;
 //    To Store the data
@@ -41,6 +45,7 @@ public class Game extends AppCompatActivity {
         img8 = findViewById(R.id.img8);
         img9 = findViewById(R.id.img9);
         rule=findViewById(R.id.rule);
+        submitButton = findViewById(R.id.submit);
 //        Starting the main Game
         onGameStart();
 //            Setting on click for event 1
@@ -232,7 +237,27 @@ public class Game extends AppCompatActivity {
                         }
                     }
                 });
-        }
+
+//                Check button on click listner
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("Submit Button Pressed");
+                if(checkWinner()){
+                    System.out.println("Winner is decided");
+                    changeBackToMain();
+                }else{
+                    System.out.println("Winner is not decided");
+                    for(int i=0;i<data.length;i++){
+                        System.out.println("Data for"+i+"is -> "+data[i]);
+                    }
+
+                }
+            }
+        });
+    }
+
+
 
 
     protected void changeBackToMain(){
@@ -247,7 +272,7 @@ public class Game extends AppCompatActivity {
             int random =(int) Math.floor(Math.random()*(max-min+1)+min);
             data[i]=random;
             switch (i){
-                case 1:
+                case 0:
                     if(random==1){
                         img1.setImageResource(R.drawable.one);
                     }else if(random == 2){
@@ -261,8 +286,9 @@ public class Game extends AppCompatActivity {
                     }else if(random == 6){
                         img1.setImageResource(R.drawable.six);
                     }
+                    System.out.println("Setting "+i+" img as "+random);
                     break;
-                case 2:
+                case 1:
                     if(random==1){
                         img2.setImageResource(R.drawable.one);
                     }else if(random == 2){
@@ -276,8 +302,9 @@ public class Game extends AppCompatActivity {
                     }else if(random == 6){
                         img2.setImageResource(R.drawable.six);
                     }
+                    System.out.println("Setting "+i+" img as "+random);
                     break;
-                case 3:
+                case 2:
                     if(random==1){
                         img3.setImageResource(R.drawable.one);
                     }else if(random == 2){
@@ -291,8 +318,9 @@ public class Game extends AppCompatActivity {
                     }else if(random == 6){
                         img3.setImageResource(R.drawable.six);
                     }
+                    System.out.println("Setting "+i+" img as "+random);
                     break;
-                case 4:
+                case 3:
                     if(random==1){
                         img4.setImageResource(R.drawable.one);
                     }else if(random == 2){
@@ -306,8 +334,9 @@ public class Game extends AppCompatActivity {
                     }else if(random == 6){
                         img4.setImageResource(R.drawable.six);
                     }
+                    System.out.println("Setting "+i+" img as "+random);
                     break;
-                case 5:
+                case 4:
                     if(random==1){
                         img5.setImageResource(R.drawable.one);
                     }else if(random == 2){
@@ -321,8 +350,9 @@ public class Game extends AppCompatActivity {
                     }else if(random == 6){
                         img5.setImageResource(R.drawable.six);
                     }
+                    System.out.println("Setting "+i+" img as "+random);
                     break;
-                case 6:
+                case 5:
                     if(random==1){
                         img6.setImageResource(R.drawable.one);
                     }else if(random == 2){
@@ -336,7 +366,58 @@ public class Game extends AppCompatActivity {
                     }else if(random == 6){
                         img6.setImageResource(R.drawable.six);
                     }
+                    System.out.println("Setting "+i+" img as "+random);
                     break;
+                case 6:
+                    if(random==1){
+                        img7.setImageResource(R.drawable.one);
+                    }else if(random == 2){
+                        img7.setImageResource(R.drawable.two);
+                    }else if(random == 3){
+                        img7.setImageResource(R.drawable.three);
+                    }else if(random == 4){
+                        img7.setImageResource(R.drawable.four);
+                    }else if(random == 5){
+                        img7.setImageResource(R.drawable.five);
+                    }else if(random == 6){
+                        img7.setImageResource(R.drawable.six);
+                    }
+                    System.out.println("Setting "+i+" img as "+random);
+                    break;
+                case 7:
+                    if(random==1){
+                        img8.setImageResource(R.drawable.one);
+                    }else if(random == 2){
+                        img8.setImageResource(R.drawable.two);
+                    }else if(random == 3){
+                        img8.setImageResource(R.drawable.three);
+                    }else if(random == 4){
+                        img8.setImageResource(R.drawable.four);
+                    }else if(random == 5){
+                        img8.setImageResource(R.drawable.five);
+                    }else if(random == 6){
+                        img8.setImageResource(R.drawable.six);
+                    }
+                    System.out.println("Setting "+i+" img as "+random);
+                    break;
+                case 8:
+                    if(random==1){
+                        img9.setImageResource(R.drawable.one);
+                    }else if(random == 2){
+                        img9.setImageResource(R.drawable.two);
+                    }else if(random == 3){
+                        img9.setImageResource(R.drawable.three);
+                    }else if(random == 4){
+                        img9.setImageResource(R.drawable.four);
+                    }else if(random == 5){
+                        img9.setImageResource(R.drawable.five);
+                    }else if(random == 6){
+                        img9.setImageResource(R.drawable.six);
+                    }
+                    System.out.println("Setting "+i+" img as "+random);
+                    break;
+
+
             }
         }
         // setting up the images
