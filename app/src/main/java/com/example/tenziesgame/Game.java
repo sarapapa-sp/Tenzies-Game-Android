@@ -43,17 +43,6 @@ public class Game extends AppCompatActivity {
         rule=findViewById(R.id.rule);
 //        Starting the main Game
         onGameStart();
-        int flag=0;
-
-
-        if(checkWinner()){
-            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-            Toast.makeText(this,"Game over",Toast.LENGTH_LONG).show();
-
-            startActivity(intent);
-        }else{
-
-
 //            Setting on click for event 1
                 img1.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -244,8 +233,13 @@ public class Game extends AppCompatActivity {
                     }
                 });
         }
-    }
 
+
+    protected void changeBackToMain(){
+        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+        Toast.makeText(this,"Game over",Toast.LENGTH_LONG).show();
+        startActivity(intent);
+    }
     protected void onGameStart(){
             int min = 1;
             int max=6;
